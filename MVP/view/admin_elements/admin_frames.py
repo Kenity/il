@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from MVP.view.admin_elements.admin_buttons import Buttons
+from MVP.view.admin_elements.admin_tree import Tree
 
 
 class Frames(ctk.CTk):
@@ -12,5 +13,9 @@ class Frames(ctk.CTk):
         self.main_frame.pack(side = 'right', fill = 'both', expand = True)
 
         self.action_frame = ctk.CTkFrame(self.main_frame)
+        self.action_frame.pack(side = 'left', fill = 'y')
+        self.action_label = ctk.CTkLabel(self.action_frame, text = 'Объект: ')
+        self.action_label.pack(side = 'top', pady = 5)
 
-        self.Buttons = Buttons(self)
+        self.Tree = Tree(self)
+        self.Buttons = Buttons(self, self.Tree)
